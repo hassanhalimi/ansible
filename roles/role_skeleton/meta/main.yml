@@ -1,0 +1,14 @@
+---
+galaxy_info:
+  author: 
+  description: 
+  company: 
+  license: 
+  min_ansible_version: 2.5
+  platforms:
+  - name: Debian
+    versions:
+    - all
+  galaxy_tags:
+    - rolename
+dependencies: []

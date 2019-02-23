@@ -1,0 +1,2 @@
+#!/usr/bin/env ansible-playbook
+- import_playbook: plays/webserver.yml
