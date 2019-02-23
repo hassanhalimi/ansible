@@ -1,3 +1,4 @@
 ---
 env_foo: bar
 env_baz: blah
+env_mongodb_var: "dev"

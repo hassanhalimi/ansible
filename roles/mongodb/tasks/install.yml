@@ -1,0 +1,5 @@
+---
+- name: Debug
+  debug:
+    msg: "Ceci est un message de debug {{ mongodb_var }}"
+     

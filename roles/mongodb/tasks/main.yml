@@ -1,6 +1,6 @@
 ---
 - include: install.yml
   tags:
-    - rolename
+    - mongodb
     - install
-    - rolename-install
+    - mongodb-install
