@@ -1,5 +1,22 @@
 ---
-- name: Debug
-  debug:
-    msg: "Ceci est un message de debug {{ mongodb_var }}"
-     
+- name: Add Repository MongoDB
+  yum_repository: 
+    name: mongodb-org-4.0
+    description: External Repo MongoDB
+    baseurl: https://repo.mongodb.org/yum/redhat/$releasever/mongodb-org/4.0/x86_64/
+    enabled: yes
+    gpgcheck: yes
+    gpgkey: https://www.mongodb.org/static/pgp/server-4.0.asc
+
+- name: Installation de mongodb-org
+  yum:
+    name: mongodb-org
+    state: present 
+    update_cache: yes
+
+- name: Start de MongoDB
+  systemd:
+    name: mongod
+    state: started
+    daemon_reload: yes
+    enabled: yes
