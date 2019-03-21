@@ -1,0 +1,17 @@
+---
+- name: Install unzip si non installe
+  yum: 
+    name: "{{ item }}"
+    state: present
+  loop:
+    - unzip
+
+- name: Unarchive nodecellar
+  unarchive:
+    src: "{{ NODECELLAR_URL }}"
+    dest: "/opt"
+    remote_src: yes 
+
+- name: Install packages based on package.json.
+  npm:
+    path: "/opt/nodecellar-master/"

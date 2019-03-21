@@ -3,16 +3,19 @@
   yum_repository: 
     name: mongodb-org-4.0
     description: External Repo MongoDB
-    baseurl: https://repo.mongodb.org/yum/redhat/$releasever/mongodb-org/4.0/x86_64/
+    file:  mongodb_repos
+    baseurl: "{{ mongodb_baseurl }}"
     enabled: yes
     gpgcheck: yes
-    gpgkey: https://www.mongodb.org/static/pgp/server-4.0.asc
+    gpgkey: "{{ mongodb_gpgkey_url }}"
 
 - name: Installation de mongodb-org
   yum:
-    name: mongodb-org
+    name: "{{ item }}"
     state: present 
     update_cache: yes
+  loop:
+    - mongodb-org 
 
 - name: Start de MongoDB
   systemd:
@@ -20,3 +23,13 @@
     state: started
     daemon_reload: yes
     enabled: yes
+
+- name: Configuration de MongoDB
+  template:
+    src: mongo_conf.j2
+    dest: /etc/mongod.conf
+    owner: root
+    group: root
+    mode: 0644
+  notify: Restart MongoDB
+

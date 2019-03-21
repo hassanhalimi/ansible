@@ -1,2 +1,4 @@
 ---
-mongodb_var: 'default'
+Ansible_managed: "# Ce template de configuration est managé par ansible, merci de ne pas le modifier"
+mongodb_baseurl: https://repo.mongodb.org/yum/redhat/$releasever/mongodb-org/4.0/x86_64/
+mongodb_gpgkey_url: https://www.mongodb.org/static/pgp/server-4.0.asc

@@ -1,14 +1,14 @@
 ---
 galaxy_info:
   author: Hassan HALIMI <hassanhalimi@yahoo.fr> 
-  description: "Installation de MongoDB" 
+  description: "Installation de nodecellar" 
   company: HALIMI
   license: MIT
-  min_ansible_version: 2.6
+  min_ansible_version: 2.5
   platforms:
   - name: CentOS
     versions:
     - all
   galaxy_tags:
-    - rolename: mongodb
+    - rolename: nodecellar
 dependencies: []
