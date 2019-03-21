@@ -15,3 +15,20 @@
 - name: Install packages based on package.json.
   npm:
     path: "/opt/nodecellar-master/"
+
+- name: Installation du service nodecellar
+  template:
+    src: nodecellar_unit.j2
+    dest: /usr/lib/systemd/system/nodecellar.service  
+
+- name: Declaration du serveur MongoDB
+  lineinfile:
+    path: /opt/nodecellar-master/routes/wines.js
+    regexp: '^(.*)localhost(.*)$'
+    line: "var server = new Server('client-node04.halimi.lan', 27017, {auto_reconnect: true});"
+
+- name: Start nodecellar.service
+  systemd:
+    name: nodecellar.service
+    state: restarted
+    enabled: yes
