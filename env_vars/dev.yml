@@ -1,4 +1,6 @@
 ---
-env_foo: bar
-env_baz: blah
 env_mongodb_var: "dev"
+env_nodecellar_mongodb_port: "27017"
+#nodecellar_port: "5000"
+env_nodecellar_mongodb_host: "client-node04.halimi.lan"
+

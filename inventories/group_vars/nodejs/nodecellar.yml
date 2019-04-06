@@ -1,0 +1,3 @@
+---
+nodecellar_mongodb_port: "{{ env_nodecellar_mongodb_port }}"
+nodecellar_mongodb_host: "{{ env_nodecellar_mongodb_host }}"

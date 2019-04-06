@@ -1,3 +1,6 @@
 ---
 nodecellar_var: 'default'
-NODECELLAR_URL: "https://github.com/cloudify-cosmo/nodecellar/archive/master.tar.gz"
+nodecellar_url: "https://github.com/cloudify-cosmo/nodecellar/archive/master.tar.gz"
+nodecellar_mongodb_port: "27017"
+nodecellar_port: "3000"
+nodecellar_mongodb_host: "client-node04.halimi.lan"
