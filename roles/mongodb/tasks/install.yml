@@ -33,3 +33,7 @@
     mode: 0644
   notify: Restart MongoDB
 
+- firewalld:
+    port: 27017/tcp
+    permanent: yes
+    state: enabled

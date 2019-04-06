@@ -1,1 +1,7 @@
 ---
+- name: Start nodecellar.service
+  systemd:
+    name: nodecellar.service
+    state: restarted
+    enabled: yes
+    daemon_reload: yes

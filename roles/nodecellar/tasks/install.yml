@@ -11,6 +11,14 @@
     src: "{{ NODECELLAR_URL }}"
     dest: "/opt"
     remote_src: yes 
+  notify: Start nodecellar.service
+
+- name: Change Owner /opt/nodecellar-master/
+  file:
+    path: /opt/nodecellar-master
+    owner: hassan
+    group: hassan
+    recurse: yes
 
 - name: Install packages based on package.json.
   npm:
@@ -20,15 +28,17 @@
   template:
     src: nodecellar_unit.j2
     dest: /usr/lib/systemd/system/nodecellar.service  
+  notify: Start nodecellar.service
 
-- name: Declaration du serveur MongoDB
-  lineinfile:
-    path: /opt/nodecellar-master/routes/wines.js
-    regexp: '^(.*)localhost(.*)$'
-    line: "var server = new Server('client-node04.halimi.lan', 27017, {auto_reconnect: true});"
+#- name: Declaration du serveur MongoDB
+#  lineinfile:
+#    path: /opt/nodecellar-master/routes/wines.js
+#    regexp: '^(.*)localhost(.*)$'
+#    line: "var server = new Server('client-node04.halimi.lan', 27017, {auto_reconnect: true});"
 
 - name: Start nodecellar.service
   systemd:
     name: nodecellar.service
-    state: restarted
+    state: started
     enabled: yes
+    daemon_reload: yes

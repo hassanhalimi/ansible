@@ -1,10 +1,11 @@
 [Unit]
-Description=server.js
-Documentation=https://example.com
+Description=Unite de demarrage de nodecellar
 After=network.target
 
 [Service]
-Environment=NODE_PORT=3000
+Environment=NODECELLAR_PORT=3000
+Environment=MONGO_HOST=client-node04.halimi.lan
+Environment=MONGO_PORT=27017
 Type=simple
 User=hassan
 ExecStart=/usr/bin/node /opt/nodecellar-master/server.js
@@ -12,3 +13,4 @@ Restart=on-failure
 
 [Install]
 WantedBy=multi-user.target
+
