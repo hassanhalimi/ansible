@@ -4,7 +4,7 @@ After=network.target
 
 [Service]
 Environment=NODECELLAR_PORT={{ nodecellar_port }}
-Environment=MONGO_HOST={{nodecellar_mongodb_host }}
+Environment=MONGO_HOST={{ nodecellar_mongodb_host }}
 Environment=MONGO_PORT={{ nodecellar_mongodb_port }}
 Type=simple
 User=hassan
